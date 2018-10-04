@@ -1,4 +1,9 @@
-var app = document.getElementById("box");
+var app = document.getElementById('box');
+
+var container = document.createElement('div');
+container.setAttribute('class', 'container');
+
+app.appendChild(container);
 
 var url = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
@@ -10,13 +15,27 @@ fetch(req)
         console.log(data)
         data.articles.forEach(articles => {
             const card = document.createElement('div');
-            card.setAttribute('class','card');
-            
+            card.setAttribute('class', 'card');
+
+            const img = document.createElement('img');
+            img.src = articles.urlToImage;
+            img.alt = "image not found";
+
             const a = document.createElement('a');
             a.textContent = articles.title;
             a.href = articles.url;
-            
-            app.appendChild(card);
-            app.appendChild(a);
+
+            const p = document.createElement('p');
+            if (articles.description) {
+                p.textContent = articles.description;
+            }
+            else {
+                p.textContent = "Summary not available";
+            }
+
+            container.appendChild(card);
+            card.appendChild(img);
+            card.appendChild(a);
+            card.appendChild(p);
         })
     })
