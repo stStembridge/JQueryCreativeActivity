@@ -4,17 +4,17 @@
 <head>
     <title>News</title>
     <link href="main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700|Audiowide|Cabin+Condensed|Marcellus+SC|Prosto+One" rel="stylesheet">
 </head>
 
 
 <body>
-    <h1 id="Header">News</h1>
+    <h1 id="Header">News in the Cloud</h1>
     <form>
         News Search: <input type="text" id="keyword" value="">
         <input id="searchButton" type="submit" value="Search"><br>
     </form>
     <div id="frontpage">
-        <h2>Today's Headlines</h2>
     </div>
 
     <!--<button id="triviaButton">Click to Begin</button>-->
@@ -23,6 +23,51 @@
     <script src="script.js"></script>
     <script>
         $(document).ready(function() {
+            var homeurl = "https://newsapi.org/v2/top-headlines?country=" +
+                "us" +
+                "&apiKey=794f0bc98a2a4b5a86290d23ab18ed27";
+
+            $.ajax({
+                url: homeurl,
+                dataType: "json",
+                success: function(response_json) {
+                    var everything = "<h2>Today's Headlines</h2><br>";
+                    console.log(response_json);
+                    var articles = response_json['articles'];
+
+                    console.log(articles);
+                    $.each(articles, function(i, item) {
+                        var image = articles[i]['urlToImage'];
+                        if (image == null) {
+                            image = "https://lh4.googleusercontent.com/-WU6FLD6jhPo/TWlDdpVYrVI/AAAAAAAAABQ/mYhf_eelq-E/s1600/planeta-terra-02-64172.jpg";
+                        }
+                        var title = articles[i]['title'];
+                        var description = articles[i]['description'];
+                        if (description == null) {
+                            description = "";
+                        }
+                        var arurl = articles[i]['url'];
+                        var source = articles[i]['source']['name'];
+                        everything += "<div class= \"news\">";
+                        everything += "<div class=\"imagebox\"><img src=\"" + image + "\"class=\"newspic\"></div>";
+                        everything += "<div class= \"titlendesc\"><h4 class=\"titles\">" + title + "</h4>";
+                        everything += "<p class=\"descrip\">" + description + "</p>";
+                        everything += "<button class=\"linktoarticle\" onclick=\"location.href=\'" + arurl + "\'\" type=\"button\">Read more</button>";
+                        everything += "<p class=\"source\"> Source: " + source + "</p>";
+                        everything += "</div></div>"
+                    })
+
+
+                    $("#frontpage").html(everything);
+                }
+            });
+
+
+
+
+
+
+
             $("#searchButton").click(function(e) {
                 var value = $("#keyword").val();
                 console.log(value);
@@ -31,7 +76,7 @@
                 var searchurl = 'https://newsapi.org/v2/everything?q=' +
                     value +
                     '&apiKey=794f0bc98a2a4b5a86290d23ab18ed27';
-                
+
                 $.ajax({
                     url: searchurl,
                     dataType: "json",
@@ -39,7 +84,7 @@
                         var everything = "<h2>Search Results For: " + value + "</h2><br><ul>";
                         console.log(response_json);
                         var articles = response_json['articles'];
-                        
+
                         console.log(articles);
                         $.each(articles, function(i, item) {
                             var title = articles[i]['title'];
@@ -50,7 +95,7 @@
                             everything += "<img src=\"" + articles[i]['urlToImage'] + "\"class=\"newspic\">";
                             everything += "<h4 class=\"titles\">" + title + "</h4>";
                             everything += "<p class=\"descrip\">" + description + "</p>";
-                            everything += "<button class=\"linktoarticle\" onclick=\"location.href=\'"+ arurl + "\'\" type=\"button\">Read more</button>";
+                            everything += "<button class=\"linktoarticle\" onclick=\"location.href=\'" + arurl + "\'\" type=\"button\">Read more</button>";
                             everything += "<p class=\"source\"> Source: " + source + "</p>";
                             everything += "</div>"
                         })
