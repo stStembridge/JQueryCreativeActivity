@@ -31,24 +31,46 @@
                 var searchurl = 'https://newsapi.org/v2/everything?q=' +
                     value +
                     '&apiKey=794f0bc98a2a4b5a86290d23ab18ed27';
-
+                
                 $.ajax({
                     url: searchurl,
                     dataType: "json",
                     success: function(response_json) {
+                        var everything = "<h2>Search Results For: " + value + "</h2><br><ul>";
                         console.log(response_json);
+                        var articles = response_json['articles'];
+                        
+                        console.log(articles);
+                        $.each(articles, function(i, item) {
+                            var title = articles[i]['title'];
+                            var description = articles[i]['description'];
+                            var arurl = articles[i]['url'];
+                            var source = articles[i]['source']['name'];
+                            everything += "<div class= \"news\">";
+                            everything += "<img src=\"" + articles[i]['urlToImage'] + "\"class=\"newspic\">";
+                            everything += "<h4 class=\"titles\">" + title + "</h4>";
+                            everything += "<p class=\"descrip\">" + description + "</p>";
+                            everything += "<button class=\"linktoarticle\" onclick=\"location.href=\'"+ arurl + "\'\" type=\"button\">Read more</button>";
+                            everything += "<p class=\"source\"> Source: " + source + "</p>";
+                            everything += "</div>"
+                        })
+
+                        everything += "</ul>";
+                        $("#frontpage").html(everything);
+                        e.preventDefault();
                     }
                 });
-                //     var req = new Request(url);
-                //     fetch(req)
-                //         .then(function(response) {
-                //             console.log(response.json());
-                //         })
-                //          e.preventDefault();
-                // });
-
             });
         });
+        //     var req = new Request(url);
+        //     fetch(req)
+        //         .then(function(response) {
+        //             console.log(response.json());
+        //         })
+        //          e.preventDefault();
+
+
+
 
         // $("#triviaButton").click(function(e){
         //     $(this).text('Click to Restart').toggleClass('clicked');
