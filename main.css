@@ -1,21 +1,18 @@
 html {
-    box-sizing: border-box
-}
-
-html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #666;
-    background: #F6F6F6;
+    background: rgb(236, 242, 248);
+    box-sizing: border-box
 }
-
-#box {
-    max-width: 1200px;
+h1 {
+    font-family: 'Playfair Display', serif;
+    padding: .5rem;
+    font-size: 1.25rem;
+    color: black;
+    width: 80%;
     margin: auto;
 }
-
 a {
     text-decoration: none;
     text-align: center;
@@ -24,30 +21,60 @@ a {
     padding: .5rem;
     font-size: 1.25rem;
     color: black;
-    /*max-height: 80px;*/
-    overflow: hidden;
 }
 
 a:hover {
     color: #ed8721;
 }
 
-/*img {*/
-
-/*  display: block;*/
-
-/*  width: 100%;*/
-
-/*height: 200px;*/
-
-/*  object-fit: cover;*/
-
-/*}*/
-
 p {
     padding: 0 1.5rem 0 2rem;
     height: 100px;
     overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #333;
+    z-index: 1;
+}
+
+li {
+    float: left;
+    margin-right: 10%;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+}
+
+li a:hover {
+    background-color: #ed8721;
+    color: white;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    background-color: white;
+    float: left;
+}
+
+img:hover {
+
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
 }
 
 .container {
@@ -75,76 +102,18 @@ p {
     height: auto;
 }
 
-@media screen and (min-width: 600px) {
-    .card {
-        flex: 1 1 calc(50% - 2rem);
-    }
-}
-
-@media screen and (min-width: 900px) {
-    .card {
-        flex: 1 1 calc(33% - 2rem);
-    }
-}
-
-
-
-html,
-body {
-    font-family: 'Roboto', sans-serif;
-    /*background-image: url(http://getwallpapers.com/wallpaper/full/f/b/d/646393.jpg);*/
-    background-color: rgb(236, 242, 248);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: Black;
-}
-
-#frontpage {
-    background-color: rgba(41, 128, 178, 0.7);
-    color: white;
-    margin-right: 8%;
-    margin-left: 8%;
-    margin-top: 5%;
-    border-style: solid;
-    border-color: white;
-    padding: 2px;
-}
-
-img {
-    /*border-radius: 8px;*/
-    /*border: 1px solid #ddd;*/
-    /*border-radius: 4px;*/
-    /*padding: 3px;*/
-    width: 100%;
-    object-fit: cover;
-    display: block;
-    background-color: white;
-    float: left;
-   
-
-}
-.newspic{
-    height: 250px;
-    width: 450px;
-}
-
-img:hover {
-
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-
-}
-
 .imagebox {
     margin: left;
 }
 
-.titlendesc {
-    padding-left: 5px;
+.newspic {
+    height: 250px;
+    width: 450px;
 }
 
-
+.titlendesc {
+    display:inline-block;
+}
 
 .news {
     margin: auto;
@@ -158,3 +127,193 @@ img:hover {
     background: white;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
 }
+
+#box {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+#frontpage {
+    background-color: rgba(41, 128, 178, 0.7);
+    color: white;
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-top: 5%;
+    border-style: solid;
+    border-color: white;
+    padding: 2px;
+}
+
+@media screen and (min-width: 600px) {
+    .card {
+        flex: 1 1 calc(50% - 2rem);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .card {
+        flex: 1 1 calc(33% - 2rem);
+    }
+}
+
+/*html {*/
+/*    box-sizing: border-box*/
+/*}*/
+
+/*html {*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    -moz-osx-font-smoothing: grayscale;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    line-height: 1.6;*/
+/*    color: #666;*/
+/*    background: #F6F6F6;*/
+/*}*/
+
+/*#box {*/
+/*    max-width: 1200px;*/
+/*    margin: auto;*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*    text-align: center;*/
+/*    display: block;*/
+/*    font-family: 'Playfair Display', serif;*/
+/*    padding: .5rem;*/
+/*    font-size: 1.25rem;*/
+/*    color: black;*/
+    /*max-height: 80px;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*a:hover {*/
+/*    color: #ed8721;*/
+/*}*/
+
+/*img {*/
+
+/*  display: block;*/
+
+/*  width: 100%;*/
+
+/*height: 200px;*/
+
+/*  object-fit: cover;*/
+
+/*}*/
+
+/*p {*/
+/*    padding: 0 1.5rem 0 2rem;*/
+/*    height: 100px;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.container {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.card {*/
+/*    margin: 1rem;*/
+/*    background: white;*/
+/*    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);*/
+/*    overflow: hidden;*/
+/*    transition: all .2s linear;*/
+/*}*/
+
+/*.card:hover {*/
+/*    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);*/
+/*    transform: translate3D(0, -2px, 0);*/
+/*}*/
+
+/*.source {*/
+/*    text-align: right;*/
+/*    color: #555;*/
+/*    font-size: .8rem;*/
+/*    height: auto;*/
+/*}*/
+
+/*@media screen and (min-width: 600px) {*/
+/*    .card {*/
+/*        flex: 1 1 calc(50% - 2rem);*/
+/*    }*/
+/*}*/
+
+/*@media screen and (min-width: 900px) {*/
+/*    .card {*/
+/*        flex: 1 1 calc(33% - 2rem);*/
+/*    }*/
+/*}*/
+
+
+
+/*html,*/
+/*body {*/
+/*    font-family: 'Roboto', sans-serif;*/
+    /*background-image: url(http://getwallpapers.com/wallpaper/full/f/b/d/646393.jpg);*/
+/*    background-color: rgb(236, 242, 248);*/
+/*    background-position: center;*/
+/*    background-size: cover;*/
+/*    background-attachment: fixed;*/
+/*    background-repeat: no-repeat;*/
+/*    color: Black;*/
+/*}*/
+
+/*#frontpage {*/
+/*    background-color: rgba(41, 128, 178, 0.7);*/
+/*    color: white;*/
+/*    margin-right: 8%;*/
+/*    margin-left: 8%;*/
+/*    margin-top: 5%;*/
+/*    border-style: solid;*/
+/*    border-color: white;*/
+/*    padding: 2px;*/
+/*}*/
+
+/*img {*/
+    /*border-radius: 8px;*/
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 4px;*/
+    /*padding: 3px;*/
+/*    width: 100%;*/
+/*    object-fit: cover;*/
+/*    display: block;*/
+/*    background-color: white;*/
+/*    float: left;*/
+   
+
+/*}*/
+/*.newspic{*/
+/*    height: 250px;*/
+/*    width: 450px;*/
+/*}*/
+
+/*img:hover {*/
+
+/*    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+
+/*}*/
+
+/*.imagebox {*/
+/*    margin: left;*/
+/*}*/
+
+/*.titlendesc {*/
+/*    padding-left: 5px;*/
+/*}*/
+
+
+
+/*.news {*/
+/*    margin: auto;*/
+/*    padding: 5px;*/
+/*    margin-bottom: 10px;*/
+/*    width: 85%;*/
+/*    overflow: auto;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    background: white;*/
+/*    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);*/
+/*}*/
