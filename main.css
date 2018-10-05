@@ -49,7 +49,7 @@ ul {
 
 li {
     float: left;
-    margin-right: 20px;
+    margin-right: 10%;
 }
 
 li a {
@@ -57,7 +57,7 @@ li a {
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 12px
+    padding: 12px;
 }
 
 li a:hover {
