@@ -26,16 +26,18 @@ fetch(req)
             a.href = articles.url;
 
             const p = document.createElement('p');
-            if (articles.description) {
-                p.textContent = articles.description;
-            }
-            else {
-                p.textContent = "Summary not available";
-            }
+            p.textContent = articles.description;
+            
+            const s = document.createElement('p');
+            s.setAttribute('class','source');
+            s.textContent = articles.source.name.toUpperCase();
 
-            container.appendChild(card);
-            card.appendChild(img);
-            card.appendChild(a);
-            card.appendChild(p);
+            if (articles.urlToImage && articles.description) {
+                container.appendChild(card);
+                card.appendChild(img);
+                card.appendChild(a);
+                card.appendChild(p);
+                card.appendChild(s);
+            }
         })
     })
